@@ -6,7 +6,6 @@ django.setup()
 
 from django.contrib.auth.models import User
 
-# Cambia 'admin' y 'tu_password_segura' por lo que quieras
 username = 'admin'
 password = 'Carrillo.2004'
 
