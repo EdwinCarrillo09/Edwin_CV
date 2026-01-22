@@ -17,7 +17,6 @@ def ver_cv(request):
     }
     return render(request, 'cv/index.html', contexto)
 
-# --- NUEVAS FUNCIONES PARA LOS BOTONES ---
 
 def ver_certificado(request, cert_id):
     # Esta función busca el certificado y lo muestra
