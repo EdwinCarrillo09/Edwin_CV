@@ -1,5 +1,6 @@
 from pathlib import Path
 import os # Aseguramos que os esté importado al inicio
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,7 +10,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3_w5ca(id(emw(z!ilb@^wz&g0s%sn-_#o&yen+wddcm37dae%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Cámbialo a False cuando ya estés en producción
 DEBUG = True
 
 # Permitimos el dominio de Render
@@ -59,10 +59,11 @@ WSGI_APPLICATION = 'mi_sitio.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # Esta línea lee la variable de entorno DATABASE_URL que configuraremos en Render
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600
+    )
 }
 
 # Password validation
